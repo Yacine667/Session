@@ -12,7 +12,7 @@
 
     {% for formation in formations %}
 
-        {{ formation.nomFormation }}
+        <a href="{{ path('detail_formation', {'id': formation.id}) }}">{{ formation.nomFormation }} </a>
 
         <br>
 

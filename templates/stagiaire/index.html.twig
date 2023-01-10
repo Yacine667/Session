@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StagiaireController!{% endblock %}
+{% block title %}Stagiaires{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <ul>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/sidyacine/Documents/Projet Formation/Session/src/Controller/StagiaireController.php'|file_link(0) }}">src/Controller/StagiaireController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/sidyacine/Documents/Projet Formation/Session/templates/stagiaire/index.html.twig'|file_link(0) }}">templates/stagiaire/index.html.twig</a></code></li>
-    </ul>
-</div>
+            {% for stagiaire in stagiaires %}
+
+            <li>
+                <ahref="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</a>
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+            <span>Ajouter un stagiaire</span>
+
+            
+                {{ form_start(formAddStagiaire) }}
+                
+                    {{ form_row(formAddStagiaire.nomStagiaire) }}
+                    {{ form_row(formAddStagiaire.prenomStagiaire) }}
+                    {{ form_row(formAddStagiaire.sexe) }}
+                
+                    {{ form_row(formAddStagiaire.dateNaissance) }}
+                    {{ form_row(formAddStagiaire.adresseStagiaire) }}
+                
+                    {{ form_row(formAddStagiaire.mailStagiaire) }}
+                    {{ form_row(formAddStagiaire.telStagiaire) }}
+                  
+                    {{ form_row(formAddStagiaire.ajouter) }}
+                
+                {{ form_end(formAddStagiaire) }}
+
+
+{% endblock %}
+
+{% block javascripts %}
+
 {% endblock %}
