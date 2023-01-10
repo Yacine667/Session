@@ -13,6 +13,17 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+
+        <nav>
+
+                <ul>
+                    <li><a href="{{ path('app_formation') }}">Formations</a></li>   
+                    <li><a href="{{ path('app_session') }}">Sessions</a></li>   
+                    <li><a href="{{ path('app_stagiaire') }}">Stagiaires</a></li>     
+                </ul>  
+
+        </nav>
+
     <body>
         {% block body %}{% endblock %}
     </body>
