@@ -39,6 +39,7 @@ class StagiaireController extends AbstractController
     }
 
     #[Route('/stagiaire/{id}', name: 'detail_stagiaire')]
+
     public function detail(ManagerRegistry $doctrine,Stagiaire $stagiaire, Request $request): Response
     {   
         if(!$stagiaire) {
@@ -62,6 +63,7 @@ class StagiaireController extends AbstractController
     }
 
     #[Route('/stagiaire/{id}/delete', name: 'delete_stagiaire')]
+    
     public function delete(ManagerRegistry $doctrine, Stagiaire $stagiaire) {
         $entityManager = $doctrine->getManager();
         $entityManager->remove($stagiaire);

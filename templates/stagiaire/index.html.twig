@@ -4,20 +4,21 @@
 
 {% block body %}
 
-        <ul>
+    <div class=containerStudent>
+        
 
             {% for stagiaire in stagiaires %}
 
-            <li>
-                <ahref="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</a>
-            </li>
+            <div onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" class=cardStudent >
+                <p class=student>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
+            </div>
 
             {% endfor %}
 
-        </ul>
+        
+    </div>
 
-            <span>Ajouter un stagiaire</span>
-
+    <div class=formStudent>
             
                 {{ form_start(formAddStagiaire) }}
                 
@@ -35,6 +36,7 @@
                 
                 {{ form_end(formAddStagiaire) }}
 
+    </div>
 
 {% endblock %}
 
