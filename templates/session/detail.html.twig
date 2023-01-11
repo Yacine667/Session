@@ -16,7 +16,7 @@
 
         {% for stagiaire in stagiairesInscrits %}
 
-            <ahref="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</a>
+            <a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</a>
             
 
         {% endfor %}
