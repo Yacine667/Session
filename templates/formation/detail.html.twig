@@ -4,17 +4,20 @@
 
 {% block body %}
 
+{% set now = date() %}
+
 <div class=containerSession>
 
     <h1>{{ formation.nomFormation }}</h1>
 
     <div class=session>
 
-        <span>Sessions en cours</span>
+        <span class=leftTitle>Sessions en cours</span>
         
         <table>
 
             <tr>
+                <th>Statut</th>
                 <th>Disponibilité</th>
                 <th>Session</th>
                 <th>Formateur</th>
@@ -25,22 +28,30 @@
 
             {% for session in currentSessions %}
 
+
             <tr>
                 <td> 
-                    {% if today > session.dateDebut and today < session.dateFin %}
+                    {% if now > session.dateDebut and now < session.dateFin %}
                     <span>En cours</span>
 
-                    {% elseif today > session.dateFin  %}
+                    {% elseif now < session.dateDebut %}
+                    <span> A venir </span>
+
+                    {% else %}
                     <span>Terminée</span>
 
-                    {% elseif today < session.dateDebut and session.stagiaires | length == session.nombrePlace %}
-                    <span>Complet</span>
-
-                    {% elseif today < session.dateDebut and session.stagiaires | length < session.nombrePlace %}
-                    <span>Disponible</span>  
 
                     {% endif %}
 
+                </td>
+                <td>
+                    {% if session.stagiaires | length == session.nombrePlace %}
+                    <span>Complet</span>  
+
+                    {% else %}
+                    <span>Disponible</span> 
+                    
+                    {% endif %}
                 </td>
                 <td>{{ session.nomSession }}</td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
@@ -58,10 +69,11 @@
 
     <div class=session>  
 
-        <span>Sessions à venir</span>
+        <span class=leftTitle>Sessions à venir</span>
 
         <table>
             <tr>
+                <th>Statut</th>
                 <th>Disponibilité</th>
                 <th>Session</th>
                 <th>Formateur</th>
@@ -74,20 +86,27 @@
 
             <tr>
                 <td> 
-                    {% if today > session.dateDebut and today < session.dateFin %}
+                    {% if now > session.dateDebut and now < session.dateFin %}
                     <span>En cours</span>
 
-                    {% elseif today > session.dateFin %}
+                    {% elseif now < session.dateDebut %}
+                    <span> A venir </span>
+
+                    {% else %}
                     <span>Terminée</span>
 
-                    {% elseif today < session.dateDebut and session.stagiaires | length == session.nombrePlace %}
-                    <span>Complet</span>
-
-                    {% elseif today < session.dateDebut and session.stagiaires | length < session.nombrePlace %}
-                    <span>Disponible</span> 
 
                     {% endif %}
 
+                </td>
+                <td>
+                    {% if session.stagiaires | length == session.nombrePlace %}
+                    <span>Complet</span>  
+
+                    {% else %}
+                    <span>Disponible</span> 
+                    
+                    {% endif %}
                 </td>
                 <td>{{ session.nomSession }}</td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
@@ -105,10 +124,11 @@
 
     <div class=session> 
 
-        <span>Sessions passées</span>
+        <span class=leftTitle>Sessions passées</span>
 
         <table>
             <tr>
+                <th>Statut</th>
                 <th>Disponibilité</th>
                 <th>Session</th>
                 <th>Formateur</th>
@@ -121,20 +141,27 @@
 
             <tr>
                 <td> 
-                    {% if today > session.dateDebut and today < session.dateFin %}
+                    {% if now > session.dateDebut and now < session.dateFin %}
                     <span>En cours</span>
 
-                    {% elseif today > session.dateFin  %}
+                    {% elseif now < session.dateDebut %}
+                    <span> A venir </span>
+
+                    {% else %}
                     <span>Terminée</span>
 
-                    {% elseif today < session.dateDebut and session.stagiaires | length == session.nombrePlace %}
-                    <span>Complet</span>
-
-                    {% elseif today < session.dateDebut and session.stagiaires | length < session.nombrePlace %}
-                    <span>Disponible</span> 
 
                     {% endif %}
 
+                </td>
+                <td>
+                    {% if session.stagiaires | length == session.nombrePlace %}
+                    <span>Complet</span>  
+
+                    {% else %}
+                    <span>Disponible</span> 
+                    
+                    {% endif %}
                 </td>
                 <td>{{ session.nomSession }}</td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
