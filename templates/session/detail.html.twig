@@ -4,34 +4,54 @@
 
 {% block body %}
 
+<div class=containerSession>
+
+    <h1>{{ nomSession }}</h1>
+
         <h3>Modules du programme</h3>
 
         {% for module in modules %}
 
+        <div class=module>
+
             <span>{{ module.nomModule }}</span>
+
+        </div>
 
         {% endfor %}
 
         <h3>Stagiaires inscrits</h3>
 
+        <div class=containerStudent>
+
         {% for stagiaire in stagiairesInscrits %}
 
-            <a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</a>
+        <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
+
+            <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
             
+        </div>
 
         {% endfor %}
 
+        </div>
+
         <h3>Stagiaires non inscrits</h3>
 
-            {% for stagiaire in stagiairesNonInscrits %}
+        <div class=containerStudent>
 
-            <li>
-                <a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}">{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</a>
+        {% for stagiaire in stagiairesNonInscrits %}
+
+        <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
+
+                <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
                 
-            </li>
+        </div>
 
-            {% endfor %}
+        {% endfor %}
 
-        </ul>
+        </div>
+
+</div>
 
 {% endblock %}

@@ -35,6 +35,7 @@ class SessionController extends AbstractController
     {
         $session_id = $session->getId();
         $stagiairesInscrits = $session->getStagiaires();
+        $nomSession = $session->getNomSession();
         $programme = $session->getProgramme();
         $modules = $programme->getModules();
         $stagiairesNonInscrits = $sr->findStagiairesNonInscritsBySessionId($session_id);   
@@ -43,6 +44,7 @@ class SessionController extends AbstractController
             'programme' => $programme,
             'modules' => $modules,
             'stagiairesNonInscrits' => $stagiairesNonInscrits,  
+            'nomSession'=>$nomSession,
             'session_id' => $session_id          
         ]);
     }

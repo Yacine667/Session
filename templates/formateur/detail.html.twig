@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Informations Du Formateur{% endblock %}
+
+{% block body %}
+
+    <h1>{{ nomFormateur ~ ' ' ~ prenomFormateur }}</h1>
+
+    <div class=containerFormation>
+
+        <div class=cardInfo>
+
+        <span>Téléphone : {{ telFormateur }}</span>
+        <span>E-mail : {{ mailFormateur }}</span>
+        
+        </div>
+        
+    </div>
+
+{% endblock %}
