@@ -4,7 +4,11 @@
 
 {% block body %}
 
+<div class=containerSession>
+
     <h1>{{ formation.nomFormation }}</h1>
+
+    <div class=session>
 
         <span>Sessions en cours</span>
         
@@ -17,7 +21,6 @@
                 <th>Commence Le</th>
                 <th>Finis Le</th>
                 <th>Inscrits</th>
-                <th>  </th>
             </tr>
 
             {% for session in currentSessions %}
@@ -44,12 +47,16 @@
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                {# <td><a href="{{ path('detail_session', {'id': session.id}) }}">Detail session</a></td> #}
+                <td><a href="{{ path('detail_session', {'id': session.id}) }}">Detail session</a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}">Supprimer Session</a></td>
             </tr>   
 
             {% endfor %}
 
-        </table>    
+        </table>  
+
+    </div>  
+
+    <div class=session>  
 
         <span>Sessions à venir</span>
 
@@ -61,7 +68,6 @@
                 <th>Commence Le</th>
                 <th>Finis Le</th>
                 <th>Inscrits</th>
-                <th>  </th>
             </tr>
 
             {% for session in upcomingSessions %}
@@ -71,7 +77,7 @@
                     {% if today > session.dateDebut and today < session.dateFin %}
                     <span>En cours</span>
 
-                    {% elseif today > session.dateFin  %}
+                    {% elseif today > session.dateFin %}
                     <span>Terminée</span>
 
                     {% elseif today < session.dateDebut and session.stagiaires | length == session.nombrePlace %}
@@ -88,12 +94,16 @@
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td>
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                {# <td><a href="{{ path('detail_session', {'id': session.id}) }}">Details Session</a><a href="{{ path('delete_session_formation', {'id': session.id}) }}">Supprimer Session</a></td> #}
+                <td><a href="{{ path('detail_session', {'id': session.id}) }}">Detail session</a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}">Supprimer Session</a></td>
             </tr> 
 
             {% endfor %}
 
-        </table>  
+        </table> 
+
+    </div>  
+
+    <div class=session> 
 
         <span>Sessions passées</span>
 
@@ -105,7 +115,6 @@
                 <th>Commence Le</th>
                 <th>Finis Le</th>
                 <th>Inscrits</th>
-                <th>  </th>
             </tr>
 
             {% for session in pastSessions %}
@@ -132,12 +141,16 @@
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td>
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                {# <td<a href="{{ path('detail_session', {'id': session.id}) }}">Detail Session</a></td> #}
+                <td><a href="{{ path('detail_session', {'id': session.id}) }}">Detail session</a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}">Supprimer Session</a></td>
             </tr>   
 
             {% endfor %}
 
         </table>
+
+    </div>  
+
+</div>
 
 {% endblock %}
 
