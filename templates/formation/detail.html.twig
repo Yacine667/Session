@@ -32,13 +32,13 @@
             <tr>
                 <td> 
                     {% if now > session.dateDebut and now < session.dateFin %}
-                    <span>En cours</span>
+                    <span> En Cours </span>
 
                     {% elseif now < session.dateDebut %}
-                    <span> A venir </span>
+                    <span> A Venir </span>
 
                     {% else %}
-                    <span>Terminée</span>
+                    <span> Terminée </span>
 
 
                     {% endif %}
@@ -46,10 +46,10 @@
                 </td>
                 <td>
                     {% if session.stagiaires | length == session.nombrePlace %}
-                    <span>Complet</span>  
+                    <span> Complet </span>  
 
                     {% else %}
-                    <span>Disponible</span> 
+                    <span> Disponible </span> 
                     
                     {% endif %}
                 </td>
@@ -69,7 +69,7 @@
 
     <div class=session>  
 
-        <span class=leftTitle>Sessions à venir</span>
+        <span class=leftTitle>Sessions Programmées</span>
 
         <table>
             <tr>
@@ -87,13 +87,13 @@
             <tr>
                 <td> 
                     {% if now > session.dateDebut and now < session.dateFin %}
-                    <span>En cours</span>
+                    <span> En Cours </span>
 
                     {% elseif now < session.dateDebut %}
-                    <span> A venir </span>
+                    <span> A Venir </span>
 
                     {% else %}
-                    <span>Terminée</span>
+                    <span> Terminée </span>
 
 
                     {% endif %}
@@ -101,10 +101,10 @@
                 </td>
                 <td>
                     {% if session.stagiaires | length == session.nombrePlace %}
-                    <span>Complet</span>  
+                    <span> Complet </span>  
 
                     {% else %}
-                    <span>Disponible</span> 
+                    <span> Disponible </span> 
                     
                     {% endif %}
                 </td>
@@ -142,23 +142,23 @@
             <tr>
                 <td> 
                     {% if now > session.dateDebut and now < session.dateFin %}
-                    <span>En cours</span>
+                    <span> En Cours </span>
 
                     {% elseif now < session.dateDebut %}
-                    <span> A venir </span>
+                    <span> A Venir </span>
 
                     {% else %}
-                    <span>Terminée</span>
+                    <span> Terminée </span>
 
                     {% endif %}
 
                 </td>
                 <td>
                     {% if session.stagiaires | length == session.nombrePlace %}
-                    <span>Complet</span>  
+                    <span> Complet </span>  
 
                     {% else %}
-                    <span>Disponible</span> 
+                    <span> Disponible </span> 
                     
                     {% endif %}
                 </td>

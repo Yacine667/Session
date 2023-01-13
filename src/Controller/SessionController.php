@@ -2,10 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Module;
 use App\Entity\Session;
+use App\Entity\Programme;
+use App\Entity\Stagiaire;
+use App\Form\SessionType;
+use App\Repository\ModuleRepository;
 use App\Repository\SessionRepository;
 use App\Repository\StagiaireRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,6 +35,7 @@ class SessionController extends AbstractController
         ]);
     }
 
+
     #[Route('/session/{id}', name: 'detail_session')]
 
     public function detail(Session $session, StagiaireRepository $sr): Response
@@ -48,6 +55,33 @@ class SessionController extends AbstractController
             'session_id' => $session_id          
         ]);
     }
+
+
+    #[Route('/session/{id}/inscrire/{stagiaireId}', name: 'inscrire_stagiaire')]
+
+    public function inscrireStagiaire(ManagerRegistry $doctrine, Session $session, $stagiaireId)
+    {
+        $entityManager = $doctrine->getManager();
+        $stagiaire = $entityManager->getRepository(Stagiaire::class)->find($stagiaireId);
+        $session->addStagiaire($stagiaire);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('detail_session', ['id' => $session->getId()]);
+    }
+
+
+    #[Route('/session/{id}/desinscrire/{stagiaireId}', name: 'desinscrire_stagiaire')]
+
+    public function desinscrireStagiaire(ManagerRegistry $doctrine, Session $session, $stagiaireId)
+    {
+        $entityManager = $doctrine->getManager();
+        $stagiaire = $entityManager->getRepository(Stagiaire::class)->find($stagiaireId);
+        $session->removeStagiaire($stagiaire);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('detail_session', ['id' => $session->getId()]);
+    }
+
 
     #[Route('/session/{id}/delete', name: 'delete_session')]
 

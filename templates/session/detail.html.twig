@@ -29,6 +29,7 @@
         <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
 
             <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
+            <a href="{{ path('desinscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}">Désinscrire</a>
             
         </div>
 
@@ -45,6 +46,7 @@
         <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
 
                 <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
+                <a href="{{ path('inscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}">Inscrire</a>
                 
         </div>
 
