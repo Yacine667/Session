@@ -32,14 +32,17 @@ class FormateurController extends AbstractController
         $nomFormateur = $formateur->getNomFormateur();
         $prenomFormateur = $formateur->getPrenomFormateur();
         $mailFormateur = $formateur->getMailFormateur();
-        $telFormateur = $formateur->getTelFormateur();   
+        $telFormateur = $formateur->getTelFormateur(); 
+        $session = $formateur->getSessions();  
         return $this->render('formateur/detail.html.twig', [
             'telFormateur' => $telFormateur,
             'mailFormateur' => $mailFormateur,
             'prenomFormateur' => $prenomFormateur,  
             'nomFormateur'=>$nomFormateur,
-            'formateur_id' => $formateur_id  
+            'formateur_id' => $formateur_id 
+             
 
         ]);
     }
+    
 }

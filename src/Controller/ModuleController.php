@@ -15,4 +15,5 @@ class ModuleController extends AbstractController
             'controller_name' => 'ModuleController',
         ]);
     }
+    
 }

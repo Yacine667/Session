@@ -28,10 +28,12 @@ class CategorieController extends AbstractController
     {   
         $categorie_id = $categorie->getId();
         $nomCategorie = $categorie->getNomCategorie();
+        $modules = $categorie->getModules();
 
         return $this->render('categorie/detail.html.twig', [ 
             'nomCategorie'=>$nomCategorie,
-            'categorie_id' => $categorie_id  
+            'categorie_id' => $categorie_id, 
+            'modules'=> $modules 
 
         ]);
     }

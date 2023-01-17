@@ -6,5 +6,18 @@
 
     <h1>{{ nomCategorie }}</h1>
 
+<div class=containerFormation>
+
+    {% for module in modules %}
+
+    <div class=formation>
+
+        {{module}}
+
+    </div> 
+
+    {% endfor %}
+
+</div>
 
 {% endblock %}
