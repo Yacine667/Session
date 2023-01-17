@@ -15,12 +15,13 @@
         <div class=module>
 
             <span>{{ module.nomModule }}</span>
+            
 
         </div>
 
         {% endfor %}
 
-        <h3>Stagiaires inscrits</h3>
+        <h3>Stagiaires Inscrits</h3>
 
         <div class=containerStudent>
 
@@ -28,8 +29,8 @@
 
         <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
 
-            <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
-            <a href="{{ path('desinscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}">Désinscrire</a>
+            <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p> 
+            <a href="{{ path('desinscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-minus"></i></a>
             
         </div>
 
@@ -37,7 +38,7 @@
 
         </div>
 
-        <h3>Stagiaires non inscrits</h3>
+        <h3>Stagiaires Non Inscrits</h3>
 
         <div class=containerStudent>
 
@@ -46,7 +47,7 @@
         <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
 
                 <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
-                <a href="{{ path('inscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}">Inscrire</a>
+                <a href="{{ path('inscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-plus"></i></a>
                 
         </div>
 

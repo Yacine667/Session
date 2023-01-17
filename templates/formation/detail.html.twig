@@ -58,7 +58,7 @@
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td><a href="{{ path('detail_session', {'id': session.id}) }}">Detail session</a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}">Supprimer Session</a></td>
+                <td class=actionIcons ><a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
             </tr>   
 
             {% endfor %}
@@ -113,7 +113,7 @@
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td>
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td><a href="{{ path('detail_session', {'id': session.id}) }}">Detail session</a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}">Supprimer Session</a></td>
+                <td class=actionIcons ><a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></a></td>
             </tr> 
 
             {% endfor %}
@@ -158,7 +158,7 @@
                     <span> Complet </span>  
 
                     {% else %}
-                    <span> Disponible </span> 
+                    <span> Session Terminée </span>
                     
                     {% endif %}
                 </td>
@@ -167,7 +167,7 @@
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td>
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td><a href="{{ path('detail_session', {'id': session.id}) }}">Detail session</a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}">Supprimer Session</a></td>
+                <td class=actionIcons ><a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
             </tr>   
 
             {% endfor %}
