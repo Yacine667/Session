@@ -13,9 +13,26 @@
         <span>Téléphone : {{ telFormateur }}</span>
         <span>E-mail : {{ mailFormateur }}</span>
 
-        
-        </div>
-        
     </div>
+
+    </div>
+
+    <h1> Sessions Assurées Par Le Formateur </h1>
+
+    <div class=containerFormation>
+
+    {% for session in sessions %}
+
+    <div onclick="document.location='{{ path('detail_session', {'id': session.id}) }}'"   class=cardInfo>
+
+    {{ session }}
+
+    </div>
+        
+    {% endfor %}
+
+    </div>
+        
+    
 
 {% endblock %}
