@@ -53,12 +53,12 @@
                     
                     {% endif %}
                 </td>
-                <td>{{ session.nomSession }}</td>
+                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td class=actionIcons ><a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
+                <td class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
             </tr>   
 
             {% endfor %}
@@ -108,12 +108,12 @@
                     
                     {% endif %}
                 </td>
-                <td>{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
+                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
-                <td>{{ session.dateFin | date('d/m/Y')  }}</td>
+                <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td class=actionIcons > <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
+                <td class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
             </tr> 
 
             {% endfor %}
@@ -162,12 +162,12 @@
                     
                     {% endif %}
                 </td>
-                <td>{{ session.nomSession }}</td>
+                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
-                <td>{{ session.dateFin | date('d/m/Y')  }}</td>
+                <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
                 <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td class=actionIcons ><a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a> <br> <a href="{{ path('delete_session_formation', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
+                <td class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
             </tr>   
 
             {% endfor %}

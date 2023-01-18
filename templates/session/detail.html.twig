@@ -4,11 +4,13 @@
 
 {% block body %}
 
-<div class=containerSession>
+<div class=containerModule>
 
     <h1>{{ nomSession }}</h1>
 
         <h3>Modules du programme</h3>
+
+        <div class=containerStudent>
 
         {% for module in modules %}
 
@@ -16,10 +18,32 @@
 
             <span>{{ module.nomModule }}</span>
             
+        </div>
+
+        {% endfor %}
+
+        </div>
+
+        <h3>Modules non programmés</h3>
+
+        <div class=containerStudent>
+
+        {% for module in modulesLibres %}
+
+        <div class=module>
+
+        <form action="{{ path('ajouter_programme', {'id':session_id,'moduleId': module.id}) }}" method="post">
+                
+                <span>{{ module.nomModule }} 
+                    <input name="duree" type="number" placeholder="Jours"> 
+                    <input name="submitProgramme" type="submit" value="+" class="fa-solid fa-plus">
+                </span>
 
         </div>
 
         {% endfor %}
+
+        </div>
 
         <h3>Stagiaires Inscrits</h3>
 

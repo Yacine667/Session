@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Module;
+use App\Entity\Programme;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -38,6 +39,26 @@ class ModuleRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+
+    public function findModulesLibresBySessionId($session_id)
+    {
+        $em = $this->getEntityManager();
+        $sub = $em->createQueryBuilder();
+        $qb = $sub;
+        $qb->select('p')
+        ->from('App\Entity\Programme', 'p')
+        ->leftJoin('p.sessions','se')
+        ->where('se.id = :id');
+
+        $sub = $em->createQueryBuilder();
+        $sub->select('mo')
+        ->from('App\Entity\Module', 'mo')
+        ->where($sub->expr()->notIn('mo.id', $qb->getDQL()))
+        ->setParameter('id', $session_id);
+        $query = $sub->getQuery();
+        return $query->getResult();
+    }
+
 
 //    /**
 //     * @return Module[] Returns an array of Module objects
