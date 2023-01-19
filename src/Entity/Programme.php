@@ -18,16 +18,17 @@ class Programme
     #[ORM\Column]
     private ?int $duree_Programme = null;
 
-    #[ORM\ManyToMany(targetEntity: Module::class, inversedBy: 'programmes')]
-    private Collection $modules;
+    #[ORM\ManyToOne(inversedBy: 'programmes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Module $module = null;
 
-    #[ORM\OneToMany(mappedBy: 'programme', targetEntity: Session::class)]
-    private Collection $sessions;
+    #[ORM\ManyToOne(inversedBy: 'programmes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Session $session = null;
 
     public function __construct()
     {
-        $this->modules = new ArrayCollection();
-        $this->sessions = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -47,59 +48,26 @@ class Programme
         return $this;
     }
 
-    /**
-     * @return Collection<int, Module>
-     */
-    public function getModules(): Collection
+    public function getModule(): ?Module
     {
-        return $this->modules;
+        return $this->module;
     }
 
-    public function addModule(Module $module): self
+    public function setModule(?Module $module): self
     {
-        if (!$this->modules->contains($module)) {
-            $this->modules->add($module);
-            $module->addProgramme($this);
-        }
+        $this->module = $module;
 
         return $this;
     }
 
-    public function removeModule(Module $module): self
+    public function getSession(): ?Session
     {
-        if ($this->modules->removeElement($module)) {
-            $module->removeProgramme($this);
-        }
-
-        return $this;
+        return $this->session;
     }
 
-    /**
-     * @return Collection<int, Session>
-     */
-    public function getSessions(): Collection
+    public function setSession(?Session $session): self
     {
-        return $this->sessions;
-    }
-
-    public function addSession(Session $session): self
-    {
-        if (!$this->sessions->contains($session)) {
-            $this->sessions->add($session);
-            $session->setProgramme($this);
-        }
-
-        return $this;
-    }
-
-    public function removeSession(Session $session): self
-    {
-        if ($this->sessions->removeElement($session)) {
-            // set the owning side to null (unless already changed)
-            if ($session->getProgramme() === $this) {
-                $session->setProgramme(null);
-            }
-        }
+        $this->session = $session;
 
         return $this;
     }

@@ -6,17 +6,18 @@
 
 <div class=containerModule>
 
-    <h1>{{ nomSession }}</h1>
+    <h1>{{ session.nomSession }}</h1>
 
         <h3>Modules du programme</h3>
 
         <div class=containerStudent>
 
-        {% for module in modules %}
+        {% for programme in programmes %}
 
         <div class=module>
 
-            <span>{{ module.nomModule }}</span>
+            <span>{{ programme.module.categorie.nomCategorie ~ ': ' ~ programme.module.nomModule ~ ' (' ~ programme.dureeProgramme ~ ' Jours)' }}</span>
+            <a href="{{ path('delete_programme', {'id':session.id,'programmeId': programme.id}) }}"><i class="fa-solid fa-xmark"></i></a>
             
         </div>
 
@@ -32,11 +33,11 @@
 
         <div class=module>
 
-        <form action="{{ path('ajouter_programme', {'id':session_id,'moduleId': module.id}) }}" method="post">
+        <form action="{{ path('add_programme', {'id':session.id,'moduleId': module.id}) }}" method="post">
                 
                 <span>{{ module.nomModule }} 
                     <input name="duree" type="number" placeholder="Jours"> 
-                    <input name="submitProgramme" type="submit" value="+" class="fa-solid fa-plus">
+                    <input name="submitProgramme" type="submit" value="+" 
                 </span>
 
         </div>
@@ -54,7 +55,7 @@
         <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
 
             <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p> 
-            <a href="{{ path('desinscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-minus"></i></a>
+            <a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-minus"></i></a>
             
         </div>
 
@@ -71,7 +72,7 @@
         <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
 
                 <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
-                <a href="{{ path('inscrire_stagiaire', {'id':session_id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-plus"></i></a>
+                <a href="{{ path('inscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-plus"></i></a>
                 
         </div>
 
