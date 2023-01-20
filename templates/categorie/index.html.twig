@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CategorieController!{% endblock %}
+{% block title %}Liste Des Catégories{% endblock %}
 
 {% block body %}
 
@@ -15,6 +15,23 @@
     </div>
 
     {% endfor %}
+
+    <div id="divBtn">
+        <button id="btnAjout">Ajouter une categorie</button>
+    </div>
+    <div id="overlay">
+        <div class="form">
+            {{ form_start(formAddCategorie) }}
+            <div class="formRow">
+                {{ form_row(formAddCategorie.nomCategorie) }}
+            </div>
+            <div class="btnAjouter">
+                {{ form_row(formAddCategorie.ajouter) }}
+            </div>
+            {{ form_end(formAddCategorie) }}
+        </div>    
+    </div>
+
 
 </div>
 

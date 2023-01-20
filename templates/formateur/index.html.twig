@@ -16,6 +16,25 @@
 
     {% endfor %}
 
+    <div id="divBtn">
+            <button id="btnAjout">Ajouter Un Formateur</button>
+        </div>
+        <div id="overlay">
+            <div class="form">
+                {{ form_start(formAddFormateur) }}
+                <div class="formRow">
+                    {{ form_row(formAddFormateur.nomFormateur) }}
+                    {{ form_row(formAddFormateur.prenomFormateur) }}
+                    {{ form_row(formAddFormateur.mailFormateur) }}
+                    {{ form_row(formAddFormateur.telFormateur) }}
+                </div>
+                <div class="btnAjouter">
+                    {{ form_row(formAddFormateur.ajouter) }}
+                </div>
+                {{ form_end(formAddFormateur) }}
+            </div>    
+        </div>
+
 </div>
 
 {% endblock %}

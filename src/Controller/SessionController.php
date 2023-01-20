@@ -21,18 +21,32 @@ class SessionController extends AbstractController
 {
     #[Route('/session', name: 'app_session')]
     
-    public function index(ManagerRegistry $doctrine, SessionRepository $sr): Response
+    public function index(ManagerRegistry $doctrine, SessionRepository $sr, Session $session = null, Request $request): Response
     {
         $today = date('d/m/Y');
         // Récuperer les sessions en base de données
         $pastSessions = $sr->findPastSessions();
         $currentSessions = $sr->findCurrentSessions();
         $upcomingSessions = $sr->findUpcomingSessions();
+
+        $sessions = $doctrine->getRepository(Session::class)->findAll();
+        $form = $this->createForm(SessionType::class, $session);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            $session = $form->getData();
+            $entityManager = $doctrine->getManager();
+            $entityManager->persist($session);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_session');
+        }
         return $this->render('session/index.html.twig', [
             'today' => $today,
             'pastSessions' => $pastSessions,
             'currentSessions' => $currentSessions,
             'upcomingSessions' => $upcomingSessions,
+            'formAddSession' => $form->createView(),
         ]);
     }
 

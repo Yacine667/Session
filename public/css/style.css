@@ -228,7 +228,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .module{
@@ -242,6 +242,14 @@ h1 {
     margin: 2%;
     text-align: center;
     border-radius: 20%;
+    color: brown;
+    font-size: 1.4em;
+    padding: 5%;
+}
+
+.module a {
+
+
     color: brown;
     font-size: 1.4em;
 }

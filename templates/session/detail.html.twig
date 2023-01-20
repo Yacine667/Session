@@ -4,9 +4,9 @@
 
 {% block body %}
 
-<div class=containerModule>
+<div class=containerSession>
 
-    <h1>{{ session.nomSession }}</h1>
+    <div class=containerModule>
 
         <h3>Modules du programme</h3>
 
@@ -37,7 +37,7 @@
                 
                 <span>{{ module.nomModule }} 
                     <input name="duree" type="number" placeholder="Jours"> 
-                    <input name="submitProgramme" type="submit" value="+" 
+                    <input name="submitProgramme" type="submit" value="+"> 
                 </span>
 
         </div>
@@ -46,7 +46,11 @@
 
         </div>
 
+        </div>
+
         <h3>Stagiaires Inscrits</h3>
+
+        
 
         <div class=containerStudent>
 
