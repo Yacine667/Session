@@ -178,6 +178,24 @@
 
 </div>
 
+<div class="form">
+            {{ form_start(formAddSession) }}
+            <div class="formRow">
+                {{ form_row(formAddSession.nomSession) }}
+                {{ form_row(formAddSession.formateur) }}
+                {{ form_row(formAddSession.formation, { 'attr': {'class': 'hidden'} }) }}
+            </div>
+            <div class="formRow">
+                {{ form_row(formAddSession.nombrePlace) }}
+                {{ form_row(formAddSession.dateDebut) }}
+                {{ form_row(formAddSession.dateFin) }}
+            </div>
+            <div class="btnAjouter">
+                {{ form_row(formAddSession.ajouter) }}
+            </div>
+            {{ form_end(formAddSession) }}
+        </div> 
+
 {% endblock %}
 
 {% block javascripts %}

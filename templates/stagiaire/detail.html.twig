@@ -4,4 +4,54 @@
 
 {% block body %}
 
+            <span>Nom: {{ stagiaire.nomStagiaire}}</span>
+            <span>Prenom: {{ stagiaire.prenomStagiaire }}</span>
+            <span>Date de naissance: {{ stagiaire.dateNaissance | date('d/m/Y') }}</span>
+            <span>Ville: {{ stagiaire.adresseStagiaire }}</span>
+            <span>Email: {{ stagiaire.mailStagiaire }}</span>
+            <span>Téléphone: {{ stagiaire.telStagiaire }}</span>
+
+
+                    <div class="sessionsStagiaire">
+            <h2>Sessions</h2>
+            {% if stagiaire.sessions | length == 0 %}
+                <span>Aucune session</span>
+            {% else %}
+            <table id="currentSessions">
+                <tr>
+                    <th>Statut</th>
+                    <th>Formation</th>
+                    <th>Session</th>
+                    <th>Formateur</th>
+                    <th>Date de début</th>
+                    <th>Date de fin</th>
+                    <th>Inscrits</th>
+                    <th>Actions</th>
+                </tr>
+                {% for session in sessionsStagiaire %}
+                <tr>
+                    <td> 
+                        {% if today > session.dateDebut and today < session.dateFin %}
+                        <span>En cours</span>
+                        {% elseif today > session.dateFin  %}
+                        <span>Terminée</span>
+                        {% elseif today < session.dateDebut and session.stagiaires | length == session.nbPlacesTotal %}
+                        <span>Complet</span>
+                        {% elseif today < session.dateDebut and session.stagiaires | length < session.nbPlacesTotal %}
+                        <span>Disponible</span>  
+                        {% endif %}
+                    </td>
+                    <td>{{ session.Formation.nomFormation }}</td>
+                    <td>{{ session.nomSession }}</td>
+                    <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
+                    <td>{{ session.dateDebut | date('d/m/Y') }}</td>
+                    <td>{{ session.dateFin | date('d/m/Y')  }}</td>
+                    <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
+                    <td class="actions"><a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i id="btnSupprimer" class="fa-solid fa-user-xmark"></i></a></td>
+                </tr>                
+                {% endfor %}
+            </table>           
+            {% endif %}
+        </div>
+
 {% endblock %}

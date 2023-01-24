@@ -18,6 +18,22 @@
 
     {% endfor %}
 
+    <div id="divBtn">
+        <button id="btnAjout">Ajouter une formation</button>
+    </div>
+    <div id="overlay">
+        <div class="form">
+            {{ form_start(formAddFormation) }}
+            <div class="formRow">
+                {{ form_row(formAddFormation.nomFormation) }}
+            </div>
+            <div class="btnAjouter">
+                {{ form_row(formAddFormation.ajouter) }}
+            </div>
+            {{ form_end(formAddFormation) }}
+        </div>    
+    </div
+
 </div>
 
 {% endblock %}

@@ -10,26 +10,42 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
             <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
         {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
     </head>
 
-        <nav class=navHome >
+        <nav class=nav >
 
-                    <a href="{{ path('app_formation') }}">Formations</a>
-                    <a href="{{ path('app_session') }}">Sessions</a>  
-                    <a href="{{ path('app_stagiaire') }}">Stagiaires</a>  
-                    <a href="{{ path('app_formateur') }}">Formateurs</a>  
-                    <a href="{{ path('app_categorie') }}">Catégories</a>    
+        <i class="uil uil-bars navOpenBtn"></i>
+
+        <a href="#" class=logo > Accueil </a>
+
+            <ul class =nav-links>
+
+                <i class="uil uil-times navCloseBtn"></i>
+                    <li><a href="{{ path('app_formation') }}">Formations</a> </li>
+                    <li><a href="{{ path('app_session') }}">Sessions</a> </li> 
+                    <li><a href="{{ path('app_stagiaire') }}">Stagiaires</a> </li> 
+                    <li><a href="{{ path('app_formateur') }}">Formateurs</a> </li>
+                    <li><a href="{{ path('app_categorie') }}">Catégories</a> </li>  
+
+            </ul>
 
         </nav>
 
     <body>
         {% block body %}
         {% endblock %}
+
+        {% block javascripts %}
+
+            <script src="{{ asset('script.js') }}"></script>
+
+        {% endblock %}
+
+    
     </body>
+
 </html>
