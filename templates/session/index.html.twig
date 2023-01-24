@@ -52,7 +52,7 @@
                     
                     {% endif %}
                 </td>
-                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
+                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
@@ -107,8 +107,7 @@
                     
                     {% endif %}
                 </td>
-                <td>{{ session.nomSession }}</td>
-                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
+                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
@@ -163,7 +162,7 @@
                     
                     {% endif %}
                 </td>
-                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
+                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></td>
                 <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
                 <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                 <td>{{ session.dateFin | date('d/m/Y')  }}</td> 

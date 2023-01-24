@@ -10,7 +10,7 @@
 
 body {
 
-    background: linear-gradient(-45deg, #F2C6A0, #faccfb, #a5eaff, #fecfbd);
+    background: linear-gradient(-45deg, #838383, #888888, #ff9e01, #bababa);
 	background-size: 400% 400%;
     min-height: 100vh;
     -webkit-animation-name: fadeInOpacity;
@@ -44,20 +44,24 @@ body {
 
 .nav {
 
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     left: 0;
     width: 100%;
     padding: 15px 200px;
-    background: red;
+    background: rgba(255, 132, 0, 0.462);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    z-index: 10;
 }
-
 
 .nav, .nav .nav-links {
 
     display: flex;
     align-items: center;
-
 
 }
 
@@ -102,14 +106,13 @@ a {
 
 }
 
-@media screen and ( max-widht:950px ) {
+@media screen and ( max-width:950px ) {
 
     .nav {
     
         padding: 15px 50px;
             
     }
-    
 }
 
 @media screen and (max-width:768px) {
@@ -118,7 +121,8 @@ a {
 .nav .navCloseBtn {
 
     display: block;
-}
+
+    }
 
     .nav .nav-links {
     
@@ -128,14 +132,18 @@ a {
         flex-direction: column;
         padding-top: 100px;
         row-gap: 30px;
-        background-color: red;
+        background: rgba(255, 132, 0, 0.462);
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 4px );
+        -webkit-backdrop-filter: blur( 4px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
         height: 100%;
         max-width: 280px;
         width: 100%;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         transition: all 0.4s ease;
-
-            
+   
     }
 
     nav.openNav .nav-links {
@@ -253,6 +261,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .session th {
@@ -272,9 +281,8 @@ h1 {
     text-align: center;
     font-size: 1em;
     border-radius: 20%;
-    padding: 20px;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     
 }
@@ -309,8 +317,6 @@ h1 {
     height: 35vh;
     background-color: rgba(255, 255, 255, 0.521);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
     border: 1px solid rgba( 255, 255, 255, 0.18 ); 
     border-radius: 20%; 
     color: brown;
@@ -320,32 +326,183 @@ h1 {
 .containerModule {
 
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.module{
+.modulePris {
 
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.201);
-    margin: 2%;
+    flex-direction: column;
+    gap: 20px;
+    margin: 3%;
+    padding: 3%;
     text-align: center;
-    border-radius: 20%;
-    color: brown;
-    font-size: 1.4em;
-    padding: 5%;
+    background: rgba(108, 253, 50, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
 }
 
-.module a {
+.modulePris th{
 
-
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
     color: brown;
-    font-size: 1.4em;
+    
+
+}
+
+.modulePris td{
+
+    padding: 2%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.moduleLibre {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin: 3%;
+    padding: 3%;
+    text-align: center;
+    background: rgba(255, 132, 0, 0.462);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.moduleLibre th{
+
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    color: brown;
+    
+}
+
+.moduleLibre td{
+
+    padding: 2%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.moduleLibre input{
+
+    width: 60%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    text-align: center;
+
+}
+
+.containerStagiaire {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stagiaireLibre {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin: 3%;
+    padding: 3%;
+    text-align: center;
+    background: rgba(255, 132, 0, 0.462);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.stagiaireLibre th{
+
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    color: brown;
+    
+}
+
+.stagiaireLibre td{
+
+    padding: 2%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.stagiaireInscrit {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin: 3%;
+    padding: 3%;
+    text-align: center;
+    background: rgba(108, 253, 50, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.stagiaireInscrit th{
+
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    color: brown;
+    
+}
+
+.stagiaireInscrit td{
+
+    padding: 2%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
 }
 
 h3 {
@@ -373,4 +530,18 @@ h3 {
 
     font-size: 1.4em;
     color: brown;
+}
+
+.detailStagiaire {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ff9e01;
+    width: 30vw;
+    height: 30vh;
+    margin-bottom: 5%;
+    margin-top: 3%;
 }

@@ -9,14 +9,27 @@
 
     <div class=containerStudent>
 
+    <table>
+
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+
             {% for stagiaire in stagiaires %}
 
-            <div onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" class=cardStudent >
-                <p class=student>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
-            </div>
+            <tr>
+
+                <td>{{ stagiaire.nomStagiaire }} </td>
+                <td>{{ stagiaire.prenomStagiaire }}</td>
+                <td class="actionIcons"><a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}"><i class="uil uil-comment-info"></i></a></td>
+
+
+            </tr>
 
             {% endfor %}
 
+    </table>
         
     </div>
 
@@ -39,9 +52,5 @@
                 {{ form_end(formAddStagiaire) }}
 
     </div>
-
-{% endblock %}
-
-{% block javascripts %}
 
 {% endblock %}

@@ -4,21 +4,31 @@
 
 {% block body %}
 
-            <span>Nom: {{ stagiaire.nomStagiaire}}</span>
-            <span>Prenom: {{ stagiaire.prenomStagiaire }}</span>
-            <span>Date de naissance: {{ stagiaire.dateNaissance | date('d/m/Y') }}</span>
-            <span>Ville: {{ stagiaire.adresseStagiaire }}</span>
-            <span>Email: {{ stagiaire.mailStagiaire }}</span>
-            <span>Téléphone: {{ stagiaire.telStagiaire }}</span>
+<div class = containerStudent>
 
+    <div class = detailStagiaire>
 
-                    <div class="sessionsStagiaire">
-            <h2>Sessions</h2>
+            <span>Nom : {{ stagiaire.nomStagiaire}}</span>
+            <span>Prénom : {{ stagiaire.prenomStagiaire }}</span>
+            <span>Date de naissance : {{ stagiaire.dateNaissance | date('d/m/Y') }}</span>
+            <span>Adresse : {{ stagiaire.adresseStagiaire }}</span>
+            <span>E-mail : {{ stagiaire.mailStagiaire }}</span>
+            <span>Téléphone : {{ stagiaire.telStagiaire }}</span>
+
+    </div>
+
+    
+
+        <div class="session">
+
+        
+
             {% if stagiaire.sessions | length == 0 %}
                 <span>Aucune session</span>
             {% else %}
-            <table id="currentSessions">
+            <table>
                 <tr>
+
                     <th>Statut</th>
                     <th>Formation</th>
                     <th>Session</th>
@@ -26,7 +36,7 @@
                     <th>Date de début</th>
                     <th>Date de fin</th>
                     <th>Inscrits</th>
-                    <th>Actions</th>
+                    
                 </tr>
                 {% for session in sessionsStagiaire %}
                 <tr>
@@ -35,23 +45,24 @@
                         <span>En cours</span>
                         {% elseif today > session.dateFin  %}
                         <span>Terminée</span>
-                        {% elseif today < session.dateDebut and session.stagiaires | length == session.nbPlacesTotal %}
+                        {% elseif today < session.dateDebut and session.stagiaires | length == session.nombrePlace %}
                         <span>Complet</span>
-                        {% elseif today < session.dateDebut and session.stagiaires | length < session.nbPlacesTotal %}
+                        {% elseif today < session.dateDebut and session.stagiaires | length < session.nombrePlace %}
                         <span>Disponible</span>  
                         {% endif %}
                     </td>
                     <td>{{ session.Formation.nomFormation }}</td>
-                    <td>{{ session.nomSession }}</td>
+                    <td class="actionIcons">{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></td>
                     <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
                     <td>{{ session.dateDebut | date('d/m/Y') }}</td>
                     <td>{{ session.dateFin | date('d/m/Y')  }}</td>
                     <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                    <td class="actions"><a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-arrow-up-right-from-square"></i></a><a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i id="btnSupprimer" class="fa-solid fa-user-xmark"></i></a></td>
+                    <td class="actionIcons"><a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="uil uil-user-times"></i></a></td>
                 </tr>                
                 {% endfor %}
             </table>           
             {% endif %}
         </div>
+    </div>
 
 {% endblock %}

@@ -4,85 +4,131 @@
 
 {% block body %}
 
-<div class=containerSession>
+<div class=containerModule>
 
-    <div class=containerModule>
+    <div class=modulePris>
 
         <h3>Modules du programme</h3>
 
-        <div class=containerStudent>
+            <table>
 
-        {% for programme in programmes %}
+                <tr>
+                    <th>Catégorie</th>
+                    <th>Nom Du Module</th>
+                    <th>Durée</th>
+                    <th>Supprimer</th>
+                </tr>
 
-        <div class=module>
+            {% for programme in programmes %}
 
-            <span>{{ programme.module.categorie.nomCategorie ~ ': ' ~ programme.module.nomModule ~ ' (' ~ programme.dureeProgramme ~ ' Jours)' }}</span>
-            <a href="{{ path('delete_programme', {'id':session.id,'programmeId': programme.id}) }}"><i class="fa-solid fa-xmark"></i></a>
-            
-        </div>
+                <tr>
+                    <td>{{ programme.module.categorie.nomCategorie }} </td>
+                    <td>{{ programme.module.nomModule }}</td>
+                    <td>{{ programme.dureeProgramme ~ ' Jours ' }}</td>
+                    <td class="actionIcons"><a href="{{ path('delete_programme', {'id':session.id,'programmeId': programme.id}) }}"><i class="uil uil-file-times-alt"></i></a></td>
+                </tr>
 
-        {% endfor %}
+            {% endfor %}
 
-        </div>
+            </table>
+
+    </div>
+
+    <div class=moduleLibre>
 
         <h3>Modules non programmés</h3>
 
-        <div class=containerStudent>
+        <table>
+
+            <tr>
+                <th>Catégorie</th>
+                <th>Nom Du Module</th>
+                <th>Durée</th>
+                <th>Ajouter</th>
+            </tr>
 
         {% for module in modulesLibres %}
 
-        <div class=module>
-
         <form action="{{ path('add_programme', {'id':session.id,'moduleId': module.id}) }}" method="post">
+
+            <tr>  
+                <td>{{ module.categorie.nomCategorie }} </td>
+                <td> {{ module.nomModule }} </td>
+                <td> <input name="duree" type="number" min= "1" placeholder="Jours"> </td>
+                <td> <input name="submitProgramme" type="submit" value="+"> </td>
+            </tr>
                 
-                <span>{{ module.nomModule }} 
-                    <input name="duree" type="number" placeholder="Jours"> 
-                    <input name="submitProgramme" type="submit" value="+"> 
-                </span>
-
-        </div>
-
         {% endfor %}
 
-        </div>
+        </table>
 
-        </div>
+    </div>
+
+</div>
+
+<div class=containerStagiaire>
+
+    <div class=stagiaireInscrit>
 
         <h3>Stagiaires Inscrits</h3>
 
-        
+            <table>
 
-        <div class=containerStudent>
+            <tr>
+                <th>Désinscrire</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Détails</th>
+            </tr>
 
         {% for stagiaire in stagiairesInscrits %}
 
-        <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
+                <tr>
+                    <td class="actionIcons"><a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="uil uil-user-minus"></i></i></a></td>
+                    <td> {{ stagiaire.nomStagiaire }} </td>
+                    <td> {{ stagiaire.prenomStagiaire }} </td>
+                    <td class="actionIcons"><a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}"> <i class="uil uil-comment-info"> </i></a></td>
+                    
 
-            <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p> 
-            <a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-minus"></i></a>
-            
-        </div>
+                </tr>
 
         {% endfor %}
 
-        </div>
+        </table>
+
+    </div>
+
+    <div class=stagiaireLibre>
+
+
 
         <h3>Stagiaires Non Inscrits</h3>
 
-        <div class=containerStudent>
+        <table>
+
+            <tr>
+                <th>Inscrire</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Détails</th>
+            </tr>
 
         {% for stagiaire in stagiairesNonInscrits %}
 
-        <div class=cardStudent onclick="document.location='{{ path('detail_stagiaire', {'id': stagiaire.id}) }}'" >
-
-                <p>{{ stagiaire.nomStagiaire ~ ' ' ~ stagiaire.prenomStagiaire}}</p>
-                <a href="{{ path('inscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="fa-solid fa-user-plus"></i></a>
+            <tr>
+                <td class="actionIcons"><a href="{{ path('inscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="uil uil-user-plus"></i></i></a></td>
+                <td>{{ stagiaire.nomStagiaire }} </td>
+                <td> {{ stagiaire.prenomStagiaire }} </td>
+                <td class="actionIcons"><a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}"> <i class="uil uil-comment-info"> </i> </a> </td>
                 
-        </div>
+
+            </tr>
 
         {% endfor %}
 
-        </div>
+        </table>
+
+    </div>
 
 </div>
 
