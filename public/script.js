@@ -1,4 +1,4 @@
-const nav = document.querySelector(".nav"),
+const nav = document.querySelector(".nav")
 navOpenBtn = document.querySelector(".navOpenBtn"),
 navCloseBtn = document.querySelector(".navCloseBtn");
 
@@ -11,4 +11,5 @@ navCloseBtn.addEventListener("click",() =>{
 
     nav.classList.remove("openNav")
 });
+
 

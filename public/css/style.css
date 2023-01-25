@@ -244,8 +244,18 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 50px;
+}
+
+.containerListSession {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 h1 {
@@ -256,49 +266,141 @@ h1 {
     margin: 20px;
 }
 
-.session {
+.currentSession {
 
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 
-.session th {
+.upcomingSession {
 
-    background-color: rgba(0, 0, 0, 0.143);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.pastSession {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.currentSession th {
+
+    background-color: rgba(249, 195, 35, 0.317);
     height: 50px;
     text-align: center;
     font-size: 1.2em;
-    border-radius: 20%;
     padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(81, 90, 212, 0.37);
+    border-radius: 10px;
+    color: brown;
     
 }
 
-.session td {
+.upcomingSession th {
 
+    background-color: rgba(157, 255, 242, 0.257);
+    height: 50px;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(81, 90, 212, 0.37);
+    border-radius: 10px;
+    color: brown;
+    
+}
+
+.pastSession th {
+
+    background-color: rgba(255, 126, 126, 0.257);
+    height: 50px;
+    text-align: center;
+    font-size: 1.2em;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(81, 90, 212, 0.37);
+    border-radius: 10px;
+    color: brown;
+    
+}
+
+.currentSession td, .upcomingSession td, .pastSession td {
+
+    background-color: rgba(255, 255, 255, 0);
     height: 50px;
     text-align: center;
     font-size: 1em;
-    border-radius: 20%;
+    border-radius: 10px;
     padding: 20px;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: brown;
     
 }
 
-.session a {
+.currentSession a {
 
     text-decoration: none;
     color: brown;
 }
 
-.leftTitle {
+.containerFormulaireSession {
 
-    font-size: 1.3em;
-    margin-right: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
     color: brown;
+    border-radius: 10px;
+    margin-bottom: 10%;
+    text-align: center;
+    padding: 2%;
 }
+
+.formSession input{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 5%;
+    border-radius: 10px;
+
+}
+
+.formSession select{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 5%;
+    border-radius: 10px;
+
+}
+
+.btnAjouterSession button{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 5%;
+    border-radius: 10px;
+    background-color: #ff9e0135;
+}
+
 
 .containerFormation {
 
