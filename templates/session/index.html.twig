@@ -13,14 +13,16 @@
     <div class=containerListSession>
 
         <div class=currentSession>
-            
-            {% for session in currentSessions %}
 
             <table>
 
-            <tr>
+                <tr>
                     <th colspan="2" class=actionIcons ><h3>Sessions En Cours</h3></th>
                 </tr>
+            
+             {% for session in currentSessions %}
+
+
 
                 <tr>
                     <th colspan="2" class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></th>
@@ -79,11 +81,9 @@
                     <th colspan="2" class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="uil uil-file-times-alt"></i></a></th>
                 </tr> 
 
-            </table> 
+             {% endfor %}
 
-            <span><br></span>
-
-            {% endfor %}
+            </table>
 
         </div>  
         
@@ -93,14 +93,15 @@
 
         <div class=upcomingSession>
 
-            {% for session in upcomingSessions %}
-
             <table>
 
                 <tr>
                     <th colspan="2"><h3>Sessions Programmées</h3></th>  
                 </tr>
 
+             {% for session in upcomingSessions %}
+
+           
                 <tr>
                     <th colspan="2" class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></th>
                 </tr>
@@ -157,12 +158,10 @@
                 <tr>
                     <th colspan="2" class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="uil uil-file-times-alt"></i></a></th>
                 </tr> 
+             
+             {% endfor %} 
 
-            </table>  
-
-            <span><br></span>
-
-            {% endfor %} 
+            </table> 
 
         </div>  
 
@@ -172,13 +171,14 @@
 
         <div class=pastSession>
 
-            {% for session in pastSessions %}
-
             <table>
 
                 <tr>
                     <th colspan="2"><h3>Sessions Terminées</h3></th>  
                 </tr>
+
+
+             {% for session in pastSessions %}
 
                 <tr>
                     <th colspan="2" class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></th>
@@ -237,11 +237,9 @@
                     <th colspan="2" class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="uil uil-file-times-alt"></i></a></th>
                 </tr> 
 
-            </table>  
+             {% endfor %}
 
-            <span><br></span>
-
-            {% endfor %}
+            </table> 
 
     </div>  
 

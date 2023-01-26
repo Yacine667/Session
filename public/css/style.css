@@ -13,6 +13,7 @@ body {
     background: linear-gradient(-45deg, #838383, #888888, #ff9e01, #bababa);
 	background-size: 400% 400%;
     min-height: 100vh;
+    max-width: 100vw;
     -webkit-animation-name: fadeInOpacity;
     animation-name: fadeInOpacity;
     -webkit-animation-iteration-count: 1;
@@ -47,7 +48,7 @@ body {
     /* position: fixed; */
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100vw;
     padding: 15px 200px;
     background: rgba(255, 132, 0, 0.462);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -731,8 +732,8 @@ h3 {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 15vw;
-    height: 25vh;
+    width: 180px;
+    height: 150px;
     background-color: rgba(255, 255, 255, 0.184);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border: 1px solid rgba( 255, 255, 255, 0.18 ); 
