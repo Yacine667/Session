@@ -4,7 +4,9 @@
 
 {% block body %}
 
-<div class = containerStudent>
+{% set now = date() %}
+
+<div class = containerDetailStagiaire>
 
     <div class = detailStagiaire>
 
@@ -17,52 +19,92 @@
 
     </div>
 
-    
-
-        <div class="session">
-
-        
+    <div class=detailStagiaireSession>
 
             {% if stagiaire.sessions | length == 0 %}
-                <span>Aucune session</span>
-            {% else %}
-            <table>
-                <tr>
 
-                    <th>Statut</th>
-                    <th>Formation</th>
-                    <th>Session</th>
-                    <th>Formateur</th>
-                    <th>Date de début</th>
-                    <th>Date de fin</th>
-                    <th>Inscrits</th>
-                    
-                </tr>
-                {% for session in sessionsStagiaire %}
+                <span>Aucune session</span>
+
+            {% else %}
+
+            <table>
+
                 <tr>
+                    <th colspan="2"><h3> Inscrit Dans : </h3></th>                   
+                </tr>
+
+                {% for session in sessionsStagiaire %}
+
+                <tr>
+                    <th>Formation</th> 
+                    <th>Statut</th>                   
+                </tr>
+
+                <tr>
+                    <td>{{ session.Formation.nomFormation }}</td>
                     <td> 
                         {% if today > session.dateDebut and today < session.dateFin %}
                         <span>En cours</span>
-                        {% elseif today > session.dateFin  %}
+
+                        {% elseif now < session.dateDebut %}
+                        <span> A Venir </span>
+
+                        {% else %}
                         <span>Terminée</span>
-                        {% elseif today < session.dateDebut and session.stagiaires | length == session.nombrePlace %}
-                        <span>Complet</span>
-                        {% elseif today < session.dateDebut and session.stagiaires | length < session.nombrePlace %}
-                        <span>Disponible</span>  
-                        {% endif %}
+
+                        {% endif %} 
                     </td>
-                    <td>{{ session.Formation.nomFormation }}</td>
+                </tr>
+
+                <tr>
+                    <th>Session</th> 
+                    <th>Inscription</th>                   
+                </tr>
+
+                <tr>
                     <td class="actionIcons">{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></td>
+                    <td>
+                        {% if session.stagiaires | length == session.nombrePlace %}
+                        <span> Complet </span>  
+
+                        {% else %}
+                        <span> Disponible </span> 
+                        
+                        {% endif %} 
+                    </td>
+
+                <tr>
+                    <th>Formateur</th> 
+                    <th>Nombre D'inscrits</th>                   
+                </tr>
+
+                <tr>
                     <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
+                    <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>                  
+                </tr>
+
+                <tr>
+                    <th>Commence Le :</th> 
+                    <th>Termine Le :</th>                   
+                </tr>
+
+                <tr>
                     <td>{{ session.dateDebut | date('d/m/Y') }}</td>
-                    <td>{{ session.dateFin | date('d/m/Y')  }}</td>
-                    <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                    <td class="actionIcons"><a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="uil uil-user-times"></i></a></td>
-                </tr>                
+                    <td>{{ session.dateFin | date('d/m/Y')  }}</td>                  
+                </tr>
+
+                <tr>
+                    <th colspan="2" class="actionIcons"><a href="{{ path('desinscrire_stagiaire', {'id':session.id,'stagiaireId': stagiaire.id}) }}"><i class="uil uil-user-times"></i></a></th>                   
+                </tr>
+               
                 {% endfor %}
-            </table>           
+
+            </table>   
+
             {% endif %}
+
         </div>
+
     </div>
 
 {% endblock %}

@@ -529,13 +529,13 @@ h1 {
 
 }
 
-.containerStagiaire {
+.containerStagiaireSession {
 
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -584,7 +584,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     margin: 3%;
     padding: 3%;
     text-align: center;
@@ -790,6 +790,144 @@ h3 {
     background-color: #ff9e0135;
 }
 
+.containerStagiaire {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.containerListStagiaire {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.containerListStagiaire th{
+
+    padding: 2%;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    color: brown;
+    
+}
+
+.containerListStagiaire td{
+
+    padding: 2%;
+    width: 200px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+.containerFormulaireStagiaire {
+    background-color: rgba(255, 255, 255, 0);
+    width: 400px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: brown;
+    border-radius: 10px;
+    margin-bottom: 10%;
+    text-align: center;
+    padding: 2%;
+}
+
+.formStagiaire input{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 9%;
+    border-radius: 10px;
+
+}
+
+.btnAjouterStagiaire button{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 5%;
+    border-radius: 10px;
+    background-color: #ff9e0135;
+}
+
+.containerDetailStagiaire {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.detailStagiaire {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ff9e0133;
+    width: 400px;
+    height: 300px;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: brown;
+    border-radius: 10px;
+}
+
+.detailStagiaireSession {
+
+    margin-top: 2%;
+}
+
+.detailStagiaireSession th{
+
+    padding: 2%;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    color: brown;
+    
+}
+
+.detailStagiaireSession td{
+
+    padding: 2%;
+    width: 250px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+
+
+
 .cardInfo {
 
     display: flex;
@@ -811,16 +949,3 @@ h3 {
     color: brown;
 }
 
-.detailStagiaire {
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    background-color: #ff9e01;
-    width: 30vw;
-    height: 30vh;
-    margin-bottom: 5%;
-    margin-top: 3%;
-}

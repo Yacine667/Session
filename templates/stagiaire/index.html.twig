@@ -7,50 +7,63 @@
 
 <h1>Liste Des Stagiaires</h1>
 
-    <div class=containerStudent>
+<div class=containerStagiaire>
 
-    <table>
+    <div class=containerListStagiaire>
 
-            <tr>
-                <th>Nom</th>
-                <th>Prénom</th>
-            </tr>
+        <table>
 
-            {% for stagiaire in stagiaires %}
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                </tr>
 
-            <tr>
+                {% for stagiaire in stagiaires %}
 
-                <td>{{ stagiaire.nomStagiaire }} </td>
-                <td>{{ stagiaire.prenomStagiaire }}</td>
-                <td class="actionIcons"><a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}"><i class="uil uil-comment-info"></i></a></td>
+                <tr>
+                    <td>{{ stagiaire.nomStagiaire }} </td>
+                    <td>{{ stagiaire.prenomStagiaire }}</td>
+                    <td class="actionIcons"><a href="{{ path('detail_stagiaire', {'id': stagiaire.id}) }}"><i class="uil uil-comment-info"></i></a></td>
+                </tr>
 
+                {% endfor %}
 
-            </tr>
+        </table>
 
-            {% endfor %}
-
-    </table>
-        
     </div>
+        
 
-    <div class=formStudent>
+
+    <div class=containerFormulaireStagiaire>
+
+        <h2>Ajouter une categorie</h2>
             
                 {{ form_start(formAddStagiaire) }}
                 
+                <div class=formStagiaire>
                     {{ form_row(formAddStagiaire.nomStagiaire) }}
                     {{ form_row(formAddStagiaire.prenomStagiaire) }}
                     {{ form_row(formAddStagiaire.sexe) }}
+                </div>
                 
+                <div class=formStagiaire>
                     {{ form_row(formAddStagiaire.dateNaissance) }}
                     {{ form_row(formAddStagiaire.adresseStagiaire) }}
+                </div>
                 
+                <div class=formStagiaire>
                     {{ form_row(formAddStagiaire.mailStagiaire) }}
                     {{ form_row(formAddStagiaire.telStagiaire) }}
-                  
+                </div>
+                
+                <div class=btnAjouterStagiaire>
                     {{ form_row(formAddStagiaire.ajouter) }}
+                </div>
                 
                 {{ form_end(formAddStagiaire) }}
 
     </div>
+
+</div>
 
 {% endblock %}
