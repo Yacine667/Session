@@ -76,6 +76,7 @@ class SessionController extends AbstractController
     {
         if(isset($_POST['submitProgramme'])){
             $duree =filter_input(INPUT_POST,"duree",FILTER_VALIDATE_INT);
+            if($duree > 0){
             $entityManager = $doctrine->getManager();
             $module = $entityManager->getRepository(Module::class)->find($moduleId);
             $programme = new Programme();
@@ -85,6 +86,11 @@ class SessionController extends AbstractController
             $entityManager->persist($programme);
             $entityManager->flush();
             return $this->redirectToRoute('detail_session', ['id' => $session->getId()]);
+            }
+     
+            else {
+        return $this->redirectToRoute('detail_session', ['id' => $session->getId()]);
+            }
         }
     }
 
