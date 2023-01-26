@@ -6,194 +6,296 @@
 
 {% set now = date() %}
 
+<h1>{{ formation.nomFormation }}</h1>
+
 <div class=containerSession>
 
-    <h1>{{ formation.nomFormation }}</h1>
-
-    <div class=session>
-
-        <span class=leftTitle>Sessions en cours</span>
+    <div class=containerListSession>
         
-        <table>
+        <div class=currentSession>
 
-            <tr>
-                <th>Statut</th>
-                <th>Inscription</th>
-                <th>Session</th>
-                <th>Formateur</th>
-                <th>Commence Le</th>
-                <th>Finis Le</th>
-                <th>Inscrits</th>
-            </tr>
+        {% if currentSessions | length == 0 %}
 
-            {% for session in currentSessions %}
+                <span class=emptyInfo><h3>Aucune Session En Cours</h3></span>
 
+        {% else %}
 
-            <tr>
-                <td> 
-                    {% if now > session.dateDebut and now < session.dateFin %}
-                    <span> En Cours </span>
+            <table>
 
-                    {% elseif now < session.dateDebut %}
-                    <span> A Venir </span>
+                <tr>
+                    <th colspan="2" class=actionIcons ><h3>Sessions En Cours</h3></th>
+                </tr>
+            
+             {% for session in currentSessions %}
 
-                    {% else %}
-                    <span> Terminée </span>
+                <tr>
+                    <th colspan="2" class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></th>
+                </tr>
 
+                <tr>
+                    <th>Formateur</th>
+                    <th>Statut</th>
+                </tr>
 
-                    {% endif %}
+                <tr>
+                    <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
+                    <td>
+                        {% if now > session.dateDebut and now < session.dateFin %}
+                        <span> En Cours </span>
 
-                </td>
-                <td>
-                    {% if session.stagiaires | length == session.nombrePlace %}
-                    <span> Complet </span>  
+                        {% elseif now < session.dateDebut %}
+                        <span> A Venir </span>
 
-                    {% else %}
-                    <span> Disponible </span> 
-                    
-                    {% endif %}
-                </td>
-                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
-                <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
-                <td>{{ session.dateDebut | date('d/m/Y') }}</td>
-                <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
-                <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
-            </tr>   
-
-            {% endfor %}
-
-        </table>  
-
-    </div>  
-
-    <div class=session>  
-
-        <span class=leftTitle>Sessions Programmées</span>
-
-        <table>
-            <tr>
-                <th>Statut</th>
-                <th>Inscription</th>
-                <th>Session</th>
-                <th>Formateur</th>
-                <th>Commence Le</th>
-                <th>Finis Le</th>
-                <th>Inscrits</th>
-            </tr>
-
-            {% for session in upcomingSessions %}
-
-            <tr>
-                <td> 
-                    {% if now > session.dateDebut and now < session.dateFin %}
-                    <span> En Cours </span>
-
-                    {% elseif now < session.dateDebut %}
-                    <span> A Venir </span>
-
-                    {% else %}
-                    <span> Terminée </span>
+                        {% else %}
+                        <span> Terminée </span>
 
 
-                    {% endif %}
+                        {% endif %} </td>
+                </tr>
 
-                </td>
-                <td>
-                    {% if session.stagiaires | length == session.nombrePlace %}
-                    <span> Complet </span>  
+                <tr>
+                    <th>Inscription</th>
+                    <th>Nombre D'inscrit</th>     
+                </tr>
 
-                    {% else %}
-                    <span> Disponible </span> 
-                    
-                    {% endif %}
-                </td>
-                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
-                <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
-                <td>{{ session.dateDebut | date('d/m/Y') }}</td>
-                <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
-                <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
-            </tr> 
+                <tr>
+                    <td> 
+                        {% if session.stagiaires | length == session.nombrePlace %}
+                        <span> Complet </span>  
 
-            {% endfor %}
+                        {% else %}
+                        <span> Disponible </span> 
+                        
+                        {% endif %}  
+                    </td>
+                    <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
+                </tr>
 
-        </table> 
+                <tr>
+                    <th>Commence Le :</th>
+                    <th>Fini Le :</th>     
+                </tr>
 
-    </div>  
+                <tr>
+                    <td>{{ session.dateDebut | date('d/m/Y') }}</td>
+                    <td>{{ session.dateFin | date('d/m/Y')  }}</td>     
+                </tr>
 
-    <div class=session> 
+                <tr>
+                    <th colspan="2" class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="uil uil-file-times-alt"></i></a></th>
+                </tr> 
 
-        <span class=leftTitle>Sessions passées</span>
+             {% endfor %}
 
-        <table>
-            <tr>
-                <th>Statut</th>
-                <th>Inscription</th>
-                <th>Session</th>
-                <th>Formateur</th>
-                <th>Commence Le</th>
-                <th>Finis Le</th>
-                <th>Inscrits</th>
-            </tr>
+            </table>
 
-            {% for session in pastSessions %}
+        {% endif %}
 
-            <tr>
-                <td> 
-                    {% if now > session.dateDebut and now < session.dateFin %}
-                    <span> En Cours </span>
+        </div>  
+        
+    </div>
 
-                    {% elseif now < session.dateDebut %}
-                    <span> A Venir </span>
+    <div class=containerListSession>
 
-                    {% else %}
-                    <span> Terminée </span>
+        <div class=upcomingSession>
 
-                    {% endif %}
+        {% if upcomingSessions | length == 0 %}
 
-                </td>
-                <td>
-                    {% if session.stagiaires | length == session.nombrePlace %}
-                    <span> Complet </span>  
+                <span class=emptyInfo><h3>Aucune Session Programmées</h3></span>
 
-                    {% else %}
-                    <span> Session Terminée </span>
-                    
-                    {% endif %}
-                </td>
-                <td class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="fa-solid fa-circle-info"></i></a></td>
-                <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
-                <td>{{ session.dateDebut | date('d/m/Y') }}</td>
-                <td>{{ session.dateFin | date('d/m/Y')  }}</td> 
-                <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
-                <td class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="fa-solid fa-delete-left"></i></a></td>
-            </tr>   
+        {% else %}
 
-            {% endfor %}
+            <table>
 
-        </table>
+                <tr>
+                    <th colspan="2"><h3>Sessions Programmées</h3></th>  
+                </tr>
+
+             {% for session in upcomingSessions %}
+
+           
+                <tr>
+                    <th colspan="2" class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></th>
+                </tr>
+
+                <tr>
+                    <th>Formateur</th>
+                    <th>Statut</th>
+                </tr>
+
+                <tr>
+                    <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
+                    <td>
+                        {% if now > session.dateDebut and now < session.dateFin %}
+                        <span> En Cours </span>
+
+                        {% elseif now < session.dateDebut %}
+                        <span> A Venir </span>
+
+                        {% else %}
+                        <span> Terminée </span>
+
+
+                        {% endif %} </td>
+                </tr>
+
+                <tr>
+                    <th>Inscription</th>
+                    <th>Nombre D'inscrit</th>     
+                </tr>
+
+                <tr>
+                    <td> 
+                        {% if session.stagiaires | length == session.nombrePlace %}
+                        <span> Complet </span>  
+
+                        {% else %}
+                        <span> Disponible </span> 
+                        
+                        {% endif %}  
+                    </td>
+                    <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
+                </tr>
+
+                <tr>
+                    <th>Commence Le :</th>
+                    <th>Fini Le :</th>     
+                </tr>
+
+                <tr>
+                    <td>{{ session.dateDebut | date('d/m/Y') }}</td>
+                    <td>{{ session.dateFin | date('d/m/Y')  }}</td>     
+                </tr>
+
+                <tr>
+                    <th colspan="2" class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="uil uil-file-times-alt"></i></a></th>
+                </tr> 
+             
+             {% endfor %} 
+
+            </table> 
+
+        {% endif %}
+
+        </div>  
+
+    </div>
+
+    <div class=containerListSession>
+
+        <div class=pastSession>
+
+        {% if pastSessions | length == 0 %}
+
+            <span class=emptyInfo><h3>Aucune Session Terminées</h3></span>
+
+        {% else %}
+
+            <table>
+
+                <tr>
+                    <th colspan="2"><h3>Sessions Terminées</h3></th>  
+                </tr>
+
+             {% for session in pastSessions %}
+
+                <tr>
+                    <th colspan="2" class=actionIcons >{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></th>
+                </tr>
+
+                <tr>
+                    <th>Formateur</th>
+                    <th>Statut</th>
+                </tr>
+
+                <tr>
+                    <td>{{ session.Formateur.prenomFormateur }} {{ session.Formateur.nomFormateur }}</td>
+                    <td>
+                        {% if now > session.dateDebut and now < session.dateFin %}
+                        <span> En Cours </span>
+
+                        {% elseif now < session.dateDebut %}
+                        <span> A Venir </span>
+
+                        {% else %}
+                        <span> Terminée </span>
+
+
+                        {% endif %} </td>
+                </tr>
+
+                <tr>
+                    <th>Inscription</th>
+                    <th>Nombre D'inscrit</th>     
+                </tr>
+
+                <tr>
+                    <td> 
+                        {% if session.stagiaires | length == session.nombrePlace %}
+                        <span> Complet </span>  
+
+                        {% else %}
+                        <span> Terminée </span> 
+                        
+                        {% endif %}  
+                    </td>
+                    <td>{{ session.stagiaires | length }}/{{ session.nombrePlace }}</td>
+                </tr>
+
+                <tr>
+                    <th>A Commencé Le :</th>
+                    <th>S'est Fini Le :</th>     
+                </tr>
+
+                <tr>
+                    <td>{{ session.dateDebut | date('d/m/Y') }}</td>
+                    <td>{{ session.dateFin | date('d/m/Y')  }}</td>     
+                </tr>
+
+                <tr>
+                    <th colspan="2" class=actionIcons > <br> <a href="{{ path('delete_session', {'id': session.id}) }}"><i class="uil uil-file-times-alt"></i></a></th>
+                </tr> 
+
+             {% endfor %}
+
+            </table> 
+
+        {% endif %}
 
     </div>  
 
 </div>
 
-<div class="form">
+   <div class=containerFormulaireSession>
+    
+        <h2>Créer Une Session</h2>
+    
             {{ form_start(formAddSession) }}
-            <div class="formRow">
+
+            <div class=formSession>
+
                 {{ form_row(formAddSession.nomSession) }}
                 {{ form_row(formAddSession.formateur) }}
-                {{ form_row(formAddSession.formation, { 'attr': {'class': 'hidden'} }) }}
+                {{ form_row(formAddSession.formation) }}
+
             </div>
-            <div class="formRow">
+
+            <div class=formSession>
+
                 {{ form_row(formAddSession.nombrePlace) }}
                 {{ form_row(formAddSession.dateDebut) }}
                 {{ form_row(formAddSession.dateFin) }}
+
             </div>
-            <div class="btnAjouter">
+
+            <div class=btnAjouterSession>
+
                 {{ form_row(formAddSession.ajouter) }}
+
             </div>
+
             {{ form_end(formAddSession) }}
-        </div> 
+            
+</div>  
 
 {% endblock %}

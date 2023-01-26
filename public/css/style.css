@@ -4,7 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Josefin Sans', sans-serif;  
- 
 }
 
 body {
@@ -39,8 +38,8 @@ body {
 	100% {
 		opacity: 1;
 	}
-
 }
+
 
         /* Barre De Navigation */
 
@@ -64,7 +63,6 @@ body {
 
     display: flex;
     align-items: center;
-
 }
 
 .nav {
@@ -103,17 +101,14 @@ a {
     .nav {
 
         padding: 15px 100px;
-
     }
-
 }
 
 @media screen and ( max-width:950px ) {
 
     .nav {
     
-        padding: 15px 50px;
-            
+        padding: 15px 50px;        
     }
 }
 
@@ -123,8 +118,7 @@ a {
 .nav .navCloseBtn {
 
     display: block;
-
-    }
+  }
 
     .nav .nav-links {
     
@@ -145,7 +139,6 @@ a {
         width: 100%;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         transition: all 0.4s ease;
-   
     }
 
     nav.openNav .nav-links {
@@ -172,6 +165,7 @@ a {
     
 }
 
+
         /* Elements Utilisés Dans Plusieurs Pages */
 
 .actionIcons a {
@@ -193,6 +187,12 @@ h3 {
     color: brown;
     font-size: 1.3em;
 }
+
+.emptyInfo {
+
+    padding: 80px;
+}
+
 
         /* Pages Session + Détail Session */
 
@@ -221,7 +221,6 @@ h3 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .upcomingSession {
@@ -230,7 +229,6 @@ h3 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .pastSession {
@@ -239,7 +237,6 @@ h3 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 .currentSession th {
@@ -251,8 +248,7 @@ h3 {
     padding: 20px;
     box-shadow: 0 8px 32px 0 rgba(81, 90, 212, 0.37);
     border-radius: 10px;
-    color: brown;
-    
+    color: brown; 
 }
 
 .upcomingSession th {
@@ -264,8 +260,7 @@ h3 {
     padding: 20px;
     box-shadow: 0 8px 32px 0 rgba(81, 90, 212, 0.37);
     border-radius: 10px;
-    color: brown;
-    
+    color: brown;  
 }
 
 .pastSession th {
@@ -277,8 +272,7 @@ h3 {
     padding: 20px;
     box-shadow: 0 8px 32px 0 rgba(81, 90, 212, 0.37);
     border-radius: 10px;
-    color: brown;
-    
+    color: brown;  
 }
 
 .currentSession td, .upcomingSession td, .pastSession td {
@@ -291,8 +285,7 @@ h3 {
     padding: 20px;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    color: brown;
-    
+    color: brown;   
 }
 
 .currentSession a {
@@ -304,11 +297,11 @@ h3 {
 .containerFormulaireSession {
 
     background-color: rgba(255, 255, 255, 0);
-    width: 50%;
+    width: 400px;
     height: 50%;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 30px;
     justify-content: center;
     align-items: center;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -317,27 +310,28 @@ h3 {
     border-radius: 10px;
     margin-bottom: 10%;
     text-align: center;
-    padding: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .formSession input{
 
     height: 10%;
-    width: 70%;
+    width: 100%;
     padding: 3%;
-    margin: 5%;
+    margin-bottom: 5%;
     border-radius: 10px;
-
 }
 
 .formSession select{
 
     height: 10%;
-    width: 70%;
+    width: 100%;
     padding: 3%;
-    margin: 5%;
+    margin-bottom: 5%;
     border-radius: 10px;
-
 }
 
 .btnAjouterSession button{
@@ -374,7 +368,6 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
 
 .modulePris th{
@@ -385,8 +378,6 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
     color: brown;
-    
-
 }
 
 .modulePris td{
@@ -398,7 +389,6 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     color: brown;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
 
 .moduleLibre {
@@ -415,7 +405,6 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
 
 .moduleLibre th{
@@ -425,8 +414,7 @@ h3 {
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
-    color: brown;
-    
+    color: brown;   
 }
 
 .moduleLibre td{
@@ -438,7 +426,6 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     color: brown;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
 
 .moduleLibre input{
@@ -450,7 +437,6 @@ h3 {
     color: brown;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     text-align: center;
-
 }
 
 .containerStagiaireSession {
@@ -486,8 +472,7 @@ h3 {
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
-    color: brown;
-    
+    color: brown;   
 }
 
 .stagiaireLibre td{
@@ -499,7 +484,6 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     color: brown;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
 
 .stagiaireInscrit {
@@ -525,8 +509,7 @@ h3 {
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
-    color: brown;
-    
+    color: brown;   
 }
 
 .stagiaireInscrit td{
@@ -538,8 +521,8 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     color: brown;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
+
 
         /* Pages Catégorie + Détail Catégorie  */
 
@@ -581,7 +564,7 @@ h3 {
 .containerFormulaireCategorie {
 
     background-color: rgba(255, 255, 255, 0);
-    width: 50%;
+    width: 400px;
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -604,7 +587,6 @@ h3 {
     padding: 3%;
     margin: 5%;
     border-radius: 10px;
-
 }
 
 .formCategorie select{
@@ -614,7 +596,6 @@ h3 {
     padding: 3%;
     margin: 5%;
     border-radius: 10px;
-
 }
 
 .btnAjouterCategorie button{
@@ -664,7 +645,7 @@ h3 {
 
 .containerFormulaireModule {
     background-color: rgba(255, 255, 255, 0);
-    width: 30%;
+    width: 400px;
     height: 50%;
     display: flex;
     flex-direction: column;
@@ -687,7 +668,6 @@ h3 {
     padding: 3%;
     margin: 5%;
     border-radius: 10px;
-
 }
 
 .formModule select{
@@ -697,7 +677,6 @@ h3 {
     padding: 3%;
     margin: 5%;
     border-radius: 10px;
-
 }
 
 .btnAjouterModule button{
@@ -709,6 +688,7 @@ h3 {
     border-radius: 10px;
     background-color: #ff9e0135;
 }
+
 
         /* Page Stagiaire + Détails Stagiaire */
 
@@ -738,8 +718,7 @@ h3 {
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
-    color: brown;
-    
+    color: brown;  
 }
 
 .containerListStagiaire td{
@@ -751,7 +730,6 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     color: brown;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
 
 .containerFormulaireStagiaire {
@@ -779,7 +757,6 @@ h3 {
     padding: 3%;
     margin: 9%;
     border-radius: 10px;
-
 }
 
 .btnAjouterStagiaire button{
@@ -832,8 +809,7 @@ h3 {
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     border-radius: 10px;
-    color: brown;
-    
+    color: brown;  
 }
 
 .detailStagiaireSession td{
@@ -845,8 +821,94 @@ h3 {
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     color: brown;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
 }
+
+
+        /* Page Formation + Détails Formation */
+
+.containerFormation {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+        
+.containerListFormation {
+        
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.formation {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    word-wrap: break-word;
+    width: 200px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.184);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+    border-radius: 20%; 
+    color: brown;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 2%;
+}
+
+.containerFormulaireFormation {
+
+    background-color: rgba(255, 255, 255, 0);
+    width: 400px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: brown;
+    border-radius: 10px;
+    margin-bottom: 10%;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.formFormation input{
+
+    height: 10%;
+    width: 100%;
+    padding: 3%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.btnAjouterFormation button{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 5%;
+    border-radius: 10px;
+    background-color: #ff9e0135;
+}
+
+
+
+
+
 
 
 

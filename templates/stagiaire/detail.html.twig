@@ -23,7 +23,7 @@
 
             {% if stagiaire.sessions | length == 0 %}
 
-                <span>Aucune session</span>
+                <span><h3>Ce Stagiaire N'est Inscrit Dans Aucune Session</h3></span>
 
             {% else %}
 
@@ -43,7 +43,7 @@
                 <tr>
                     <td>{{ session.Formation.nomFormation }}</td>
                     <td> 
-                        {% if today > session.dateDebut and today < session.dateFin %}
+                        {% if now > session.dateDebut and now < session.dateFin %}
                         <span>En cours</span>
 
                         {% elseif now < session.dateDebut %}
@@ -65,7 +65,10 @@
                     <td class="actionIcons">{{ session.nomSession }} <a href="{{ path('detail_session', {'id': session.id}) }}"><i class="uil uil-comment-info"></i></a></td>
                     <td>
                         {% if session.stagiaires | length == session.nombrePlace %}
-                        <span> Complet </span>  
+                        <span> Complet </span> 
+
+                        {% elseif now > session.dateFin %}
+                        <span> Session Terminée </span> 
 
                         {% else %}
                         <span> Disponible </span> 
