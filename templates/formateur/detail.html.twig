@@ -4,34 +4,61 @@
 
 {% block body %}
 
-    <h1>{{ nomFormateur ~ ' ' ~ prenomFormateur }}</h1>
+{% set now = date() %}
 
-    <div class=containerFormation>
+<h1>{{ nomFormateur ~ ' ' ~ prenomFormateur }}</h1>
 
-        <div class=cardInfo>
+<div class = containerDetailFormateur>
 
+    <div class = detailFormateur>
+
+        <span>Nom : {{ nomFormateur }}</span>
+        <span>Prénom : {{ prenomFormateur }}</span>
         <span>Téléphone : {{ telFormateur }}</span>
         <span>E-mail : {{ mailFormateur }}</span>
 
     </div>
 
+    <div class=detailFormateurSession>
+
+    {% if sessions | length == 0 %}
+
+                    <span><h3>Ce Formateur N'assure Aucune Session</h3></span>
+
+                {% else %}
+
+            <h1> Sessions Assurées Par Le Formateur </h1>
+
+            <div class=listSessionFormateur>
+
+                {% for session in sessions %}
+
+                    <div onclick="document.location='{{ path('detail_session', {'id': session.id}) }}'"   class=sessionFormateur>
+
+                    {{ session }}
+
+                    {% if now > session.dateDebut and now < session.dateFin %}
+                                        <span>En cours</span>
+
+                                        {% elseif now < session.dateDebut %}
+                                        <span> A Venir </span>
+
+                                        {% else %}
+                                        <span>Terminée</span>
+
+                                        {% endif %} 
+
+                    </div>
+            
+                {% endfor %}
+
+            </div>
+
     </div>
 
-    <h1> Sessions Assurées Par Le Formateur </h1>
+    {% endif %} 
 
-    <div class=containerFormation>
-
-    {% for session in sessions %}
-
-    <div onclick="document.location='{{ path('detail_session', {'id': session.id}) }}'"   class=cardInfo>
-
-    {{ session }}
-
-    </div>
-        
-    {% endfor %}
-
-    </div>
+</div>
         
     
 

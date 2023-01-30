@@ -43,6 +43,7 @@ body {
 
         /* Barre De Navigation */
 
+
 .nav {
 
     /* position: fixed; */
@@ -52,8 +53,8 @@ body {
     padding: 15px 200px;
     background: rgba(255, 132, 0, 0.462);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 4px );
-    -webkit-backdrop-filter: blur( 4px );
+    /* backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px ); */
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     z-index: 10;
@@ -94,7 +95,9 @@ a {
     display: none;
 }
 
+
         /* Responsive NavBar */
+
 
 @media screen and ( max-width:1160px ) {
 
@@ -112,7 +115,7 @@ a {
     }
 }
 
-@media screen and (max-width:768px) {
+@media screen and ( max-width:768px ) {
 
     .nav .navOpenBtn,
 .nav .navCloseBtn {
@@ -162,11 +165,11 @@ a {
         font-size: 20px;
         cursor: pointer;
     }
-    
 }
 
 
         /* Elements Utilisés Dans Plusieurs Pages */
+
 
 .actionIcons a {
 
@@ -195,6 +198,7 @@ h3 {
 
 
         /* Pages Session + Détail Session */
+
 
 .containerSession {
 
@@ -526,6 +530,7 @@ h3 {
 
         /* Pages Catégorie + Détail Catégorie  */
 
+
 .containerCategorie {
 
     display: flex;
@@ -692,6 +697,7 @@ h3 {
 
         /* Page Stagiaire + Détails Stagiaire */
 
+
 .containerStagiaire {
 
     display: flex;
@@ -826,6 +832,7 @@ h3 {
 
         /* Page Formation + Détails Formation */
 
+
 .containerFormation {
 
     display: flex;
@@ -904,6 +911,147 @@ h3 {
     border-radius: 10px;
     background-color: #ff9e0135;
 }
+
+
+        /* Pages Formateur + Détails */
+
+
+.containerFormateur {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.containerListFormateur {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.containerListFormateur th{
+
+    padding: 2%;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border-radius: 10px;
+    color: brown;  
+}
+
+.containerListFormateur td{
+
+    padding: 2%;
+    width: 200px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    color: brown;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.containerFormulaireFormateur {
+    background-color: rgba(255, 255, 255, 0);
+    width: 400px;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: brown;
+    border-radius: 10px;
+    margin-bottom: 10%;
+    text-align: center;
+    padding: 2%;
+}
+
+.formFormateur input{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 9%;
+    border-radius: 10px;
+}
+
+.btnAjouterFormateur button{
+
+    height: 10%;
+    width: 70%;
+    padding: 3%;
+    margin: 5%;
+    border-radius: 10px;
+    background-color: #ff9e0135;
+}
+
+.containerDetailFormateur {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.detailFormateur {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: #ff9e0133;
+    width: 400px;
+    height: 300px;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    color: brown;
+    border-radius: 10px;
+}
+
+.listSessionFormateur {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 5%;
+}
+
+.sessionFormateur {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    word-wrap: break-word;
+    width: 200px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.184);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 ); 
+    border-radius: 20%; 
+    color: brown;
+    text-align: center;
+    padding: 2%;
+    margin-top: 5%;
+    gap: 10px;
+}
+
 
 
 

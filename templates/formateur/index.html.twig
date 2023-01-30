@@ -6,33 +6,50 @@
 
 <h1>Liste Des Formateurs</h1>
 
-<div class=containerFormation>
+<div class=containerFormateur>
+
+    <div class=containerListFormateur>
+
+        <table>
+
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                </tr>
 
     {% for formateur in formateurs %}
 
-    <div onclick="document.location='{{ path('detail_formateur', {'id': formateur.id}) }}'"  class=cardStudent>
-        <p class=student>{{ formateur.nomFormateur ~ ' ' ~ formateur.prenomFormateur }} </p>
-    </div>
+                <tr>
+                    <td>{{ formateur.nomFormateur }} </td>
+                    <td>{{ formateur.prenomFormateur }}</td>
+                    <td class="actionIcons"><a href="{{ path('detail_formateur', {'id': formateur.id}) }}"><i class="uil uil-comment-info"></i></a></td>
+                </tr>
 
     {% endfor %}
 
-    <div id="divBtn">
-            <button id="btnAjout">Ajouter Un Formateur</button>
-        </div>
-        <div id="overlay">
-            <div class="form">
+        </table>
+
+    </div>
+
+    <div class=containerFormulaireStagiaire>
+
+        <h2>Ajouter Un Formateur</h2>
+
                 {{ form_start(formAddFormateur) }}
-                <div class="formRow">
+                
+                <div class=formFormateur>
                     {{ form_row(formAddFormateur.nomFormateur) }}
                     {{ form_row(formAddFormateur.prenomFormateur) }}
                     {{ form_row(formAddFormateur.mailFormateur) }}
                     {{ form_row(formAddFormateur.telFormateur) }}
                 </div>
-                <div class="btnAjouter">
+                
+                <div class=btnAjouterFormateur>
                     {{ form_row(formAddFormateur.ajouter) }}
                 </div>
+                
                 {{ form_end(formAddFormateur) }}
-            </div>    
+            
         </div>
 
 </div>
